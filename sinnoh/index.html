@@ -17,16 +17,16 @@
         <body style="text-align: center;">
             <div id="overlay" class="hidden">
                 <div class="modal-content">
-                    <h2>New Content Appears</h2>
-                    <p>The screen behind this is darkened.</p>
+                    <audio src="/audio/rotom-arceus.wav" id="arceus-dex"></audio>
+                    <img src="/images/arceus-dex-rotom.png" class="dex" />
                     <button id="closeBtn">Close</button>
                 </div>
             </div>
-            <button id="openBtn" class="corner"><img src="/images/HOME0479.png" alt="Rotom" id="rotom" class="corner outline"></button>
+            <button id="openBtn" class="corner" ><img src="/images/HOME0479.png" alt="Rotom" id="rotom" class="corner outline"></button>
 
             <h3>Sinnoh</h3>
             
-            <img src="/images/Sinnoh_BDSP_artwork.png" class="mainimg">
+            <img src="/images/Sinnoh_BDSP_artwork.png" class="mainimg"/>
             <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut maximus, purus a mattis semper, urna lorem sagittis metus, ut faucibus arcu metus eget dui. Vestibulum dignissim interdum libero, vel volutpat elit tempus vel. Sed ornare ornare auctor. Maecenas at turpis tristique, dictum metus a, semper mi. Praesent lacus lorem, malesuada a ornare nec, porttitor volutpat massa. Mauris ultricies et metus vel tempus. Donec in maximus velit, sed sodales ante. Etiam tincidunt tempor felis, ac condimentum eros pretium id. Nulla consequat posuere enim id interdum. Cras lobortis commodo accumsan. Etiam sed lacinia massa, eu bibendum urna. Curabitur facilisis nulla ut tellus mattis mollis. Sed lacinia nibh at nibh luctus varius. Integer quis porta dolor.
 
@@ -76,17 +76,23 @@ Phasellus aliquam ex in odio dictum mattis. Suspendisse suscipit libero aliquam 
         const openBtn = document.getElementById('openBtn');
         const closeBtn = document.getElementById('closeBtn');
         const rotom = document.getElementById('rotom');
+        const dex = document.getElementById('arceus-dex');
+
+        dex.volume = 0.25
 
         // Show the overlay
         openBtn.addEventListener('click', () => {
-        overlay.classList.remove('hidden');
-        rotom.classList.add('hidden');
+            overlay.classList.remove('hidden');
+            rotom.classList.add('hidden');
+            dex.play();
         });
 
         // Hide the overlay
         closeBtn.addEventListener('click', () => {
-        overlay.classList.add('hidden');
-        rotom.classList.remove('hidden');
+            overlay.classList.add('hidden');
+            rotom.classList.remove('hidden');
+            dex.pause();
+            dex.currentTime = 0;
         });
 
         // Hide if user clicks the dark space
@@ -94,6 +100,8 @@ Phasellus aliquam ex in odio dictum mattis. Suspendisse suscipit libero aliquam 
         if (e.target === overlay) {
             overlay.classList.add('hidden');
             rotom.classList.remove('hidden');
+            dex.pause();
+            dex.currentTime = 0;
         }
         });
 
