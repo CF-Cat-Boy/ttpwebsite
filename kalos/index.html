@@ -13,22 +13,25 @@
         <strong>Dark Mode</strong>
         </div>
     </nav>
+    <a href="../"><svg style="position: fixed; top: 20px; left: 20px;" id="backBtn" viewBox="0 0 24 24" width="24" height="24" stroke="black" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a>
     <main>
-        <body style="text-align: center;">
-            <div id="overlay" class="hidden">
-                <div class="modal-content">
-                    <audio src="/audio/rotom-floette.wav" id="floette-dex"></audio>
-                    <img src="/images/e-floette-dex-rotom.png" class="dex" />
-                    <button id="closeBtn">Close</button>
-                </div>
+    
+    
+        
+        <div id="overlay" class="hidden">
+            <div class="modal-content">
+                <audio src="/audio/rotom-floette.wav" id="floette-dex"></audio>
+                <img src="/images/e-floette-dex-rotom.png" class="dex" />
+                <button id="closeBtn">Close</button>
             </div>
-            <button id="openBtn" class="corner" ><img src="/images/HOME0479.png" alt="Rotom" id="rotom" class="corner outline"></button>
+        </div>
+        <button id="openBtn" class="corner"><img src="/images/HOME0479.png" alt="Rotom" id="rotom" class="corner outline"></button>
 
-            <h3>Kalos</h3>
-            
-            <img src="/images/Kalos_alt.png" class="mainimg"/>
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut maximus, purus a mattis semper, urna lorem sagittis metus, ut faucibus arcu metus eget dui. Vestibulum dignissim interdum libero, vel volutpat elit tempus vel. Sed ornare ornare auctor. Maecenas at turpis tristique, dictum metus a, semper mi. Praesent lacus lorem, malesuada a ornare nec, porttitor volutpat massa. Mauris ultricies et metus vel tempus. Donec in maximus velit, sed sodales ante. Etiam tincidunt tempor felis, ac condimentum eros pretium id. Nulla consequat posuere enim id interdum. Cras lobortis commodo accumsan. Etiam sed lacinia massa, eu bibendum urna. Curabitur facilisis nulla ut tellus mattis mollis. Sed lacinia nibh at nibh luctus varius. Integer quis porta dolor.
+        <h3>Kalos</h3>
+        
+        <img src="/images/Kalos_alt.png" class="mainimg"/>
+        <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut maximus, purus a mattis semper, urna lorem sagittis metus, ut faucibus arcu metus eget dui. Vestibulum dignissim interdum libero, vel volutpat elit tempus vel. Sed ornare ornare auctor. Maecenas at turpis tristique, dictum metus a, semper mi. Praesent lacus lorem, malesuada a ornare nec, porttitor volutpat massa. Mauris ultricies et metus vel tempus. Donec in maximus velit, sed sodales ante. Etiam tincidunt tempor felis, ac condimentum eros pretium id. Nulla consequat posuere enim id interdum. Cras lobortis commodo accumsan. Etiam sed lacinia massa, eu bibendum urna. Curabitur facilisis nulla ut tellus mattis mollis. Sed lacinia nibh at nibh luctus varius. Integer quis porta dolor.
 
 Vivamus vel mi tortor. Morbi laoreet velit eget augue lobortis mollis. Morbi vitae consequat ante, in molestie justo. Fusce pharetra tempus diam, quis scelerisque ex. Pellentesque id tincidunt sapien. Duis ultrices vel magna ac aliquam. Curabitur lobortis erat sit amet sem luctus iaculis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut ipsum turpis, bibendum in massa eget, blandit hendrerit ligula. Curabitur viverra tristique convallis. Sed in fringilla lorem, sed venenatis dui. Maecenas pharetra erat neque, ac mattis mauris consequat in.
 
@@ -37,9 +40,9 @@ Nulla facilisi. Praesent sit amet consequat erat, id egestas lorem. Vestibulum a
 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur eget purus dignissim, rutrum magna id, accumsan odio. Duis facilisis suscipit pharetra. Aliquam fringilla vehicula eros, tristique scelerisque erat. Nullam feugiat blandit dui, eget dignissim dolor. Aenean non lacus venenatis, ullamcorper diam at, rhoncus libero. Aenean lacinia lacus non dui imperdiet cursus. Sed vel lobortis arcu, nec feugiat tellus. Maecenas sed orci faucibus velit scelerisque consequat. Nulla ut ipsum placerat, sagittis purus at, mattis dolor. Maecenas viverra vel ipsum at convallis. Morbi ligula ligula, commodo eu metus quis, varius egestas est. Sed ligula risus, venenatis a mauris non, interdum tempor urna. Morbi a erat ante. Aliquam fermentum diam eget venenatis interdum.
 
 Phasellus aliquam ex in odio dictum mattis. Suspendisse suscipit libero aliquam tortor condimentum, a vulputate metus ultricies. Ut vitae ipsum venenatis ex ornare ullamcorper. Duis accumsan quis libero at consectetur. Nullam vel arcu sit amet magna ultrices mollis. Phasellus blandit ac nisi ut vestibulum. Duis justo est, tincidunt sed massa sit amet, imperdiet aliquam elit. Suspendisse condimentum ullamcorper dui eu accumsan. In tincidunt sem eu libero rutrum vestibulum.
-            </p>
-            
-        </body>
+        </p>
+        
+    
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.10/js/imageMapResizer.min.js">imageMapResize();</script>
     <script>imageMapResize();</script>
@@ -47,23 +50,27 @@ Phasellus aliquam ex in odio dictum mattis. Suspendisse suscipit libero aliquam 
 
         const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
         const currentTheme = localStorage.getItem('theme');
+        const backBtn = document.getElementById('backBtn');
 
         if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
+            document.documentElement.setAttribute('data-theme', currentTheme);
 
-        if (currentTheme === 'dark') {
-            toggleSwitch.checked = true;
-        }
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+                backBtn.setAttribute("stroke","white");
+            }
         }
 
         function switchTheme(e) {
-        if (e.target.checked) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-        } else
-        {document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-        }
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                backBtn.setAttribute("stroke","white");
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                backBtn.setAttribute("stroke","black");
+            }
         }
 
         toggleSwitch.addEventListener('change', switchTheme, false);
