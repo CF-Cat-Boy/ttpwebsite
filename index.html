@@ -53,9 +53,11 @@
         
         <div id="overlay" class="hidden">
             <div class="modal-content">
-                <audio src="/audio/rotom-arceus.wav" id="floette-dex"></audio>
-                <img src="/images/arceus-dex-rotom.png" class="dex" />
-                <button id="closeBtn">Close</button>
+                <img src="/images/rotom-dexat-rotom.png" class="dex" id="dex1"/>
+                <img src="/images/rotom-dex-rotom.png" class="dex hidden" id="dex2"/>
+                <audio src="/audio/rotom-alert.mp3" id="rotsound"></audio>
+                <audio src="/audio/rotom-dex1.wav" id="floette-dex"></audio>
+                <audio src="/audio/rotom-dex2.wav" id="rotom-dex"></audio>
             </div>
         </div>
         <button id="openBtn" class="corner ms-small"><img src="/images/HOME0479.png" alt="Rotom" id="rotom" class="corner outline"></button>
@@ -119,25 +121,22 @@
 
         const overlay = document.getElementById('overlay');
         const openBtn = document.getElementById('openBtn');
-        const closeBtn = document.getElementById('closeBtn');
         const rotom = document.getElementById('rotom');
         const dex = document.getElementById('floette-dex');
+        const rotex = document.getElementById('rotom-dex');
+        const rotsound = document.getElementById('rotsound');
+        const dex1 = document.getElementById('dex1');
+        const dex2 = document.getElementById('dex2');
 
-        dex.volume = 0.25
-
+        dex.volume = 0.5
+        rotex.volume = 0.25
+        
         // Show the overlay
         openBtn.addEventListener('click', () => {
             overlay.classList.remove('hidden');
             rotom.classList.add('hidden');
+            rotsound.play();
             dex.play();
-        });
-
-        // Hide the overlay
-        closeBtn.addEventListener('click', () => {
-            overlay.classList.add('hidden');
-            rotom.classList.remove('hidden');
-            dex.pause();
-            dex.currentTime = 0;
         });
 
         // Hide if user clicks the dark space
@@ -147,7 +146,17 @@
             rotom.classList.remove('hidden');
             dex.pause();
             dex.currentTime = 0;
+            rotex.pause();
+            rotex.currentTime = 0;
+            dex2.classList.add("hidden");
+            dex1.classList.remove("hidden");
         }
+        });
+
+        dex.addEventListener('ended', (event) => {
+            dex1.classList.add("hidden");
+            dex2.classList.remove("hidden");
+            rotex.play();
         });
   </script>
 </body>

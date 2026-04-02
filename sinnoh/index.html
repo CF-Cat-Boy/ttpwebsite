@@ -20,9 +20,10 @@
         
         <div id="overlay" class="hidden">
             <div class="modal-content">
+                <audio src="/audio/rotom-alert.mp3" id="rotsound"></audio>
                 <audio src="/audio/rotom-arceus.wav" id="floette-dex"></audio>
                 <img src="/images/arceus-dex-rotom.png" class="dex" />
-                <button id="closeBtn">Close</button>
+
             </div>
         </div>
         <button id="openBtn" class="corner ms-small"><img src="/images/HOME0479.png" alt="Rotom" id="rotom" class="corner outline"></button>
@@ -30,7 +31,7 @@
         <h3>Sinnoh</h3>
         
         <img src="/images/Sinnoh_BDSP_artwork.png" class="mainimg"/>
-        &nbsp;
+        <br/>
         <p>
 
         The Sinnoh region is located north of Kanto, Johto and Hoenn. The region has a large main landmass surrounded by the Battle Zone on an island to the northeast and several other smaller islands. Sinnoh’s geography and cities are based on the Japanese island of Hokkaido.
@@ -78,7 +79,7 @@ In ancient times, Sinnoh was known as Hisui and the people worshipped Arceus as 
 
         const overlay = document.getElementById('overlay');
         const openBtn = document.getElementById('openBtn');
-        const closeBtn = document.getElementById('closeBtn');
+        const rotsound = document.getElementById('rotsound');
         const rotom = document.getElementById('rotom');
         const dex = document.getElementById('floette-dex');
 
@@ -88,15 +89,8 @@ In ancient times, Sinnoh was known as Hisui and the people worshipped Arceus as 
         openBtn.addEventListener('click', () => {
             overlay.classList.remove('hidden');
             rotom.classList.add('hidden');
+            rotsound.play();
             dex.play();
-        });
-
-        // Hide the overlay
-        closeBtn.addEventListener('click', () => {
-            overlay.classList.add('hidden');
-            rotom.classList.remove('hidden');
-            dex.pause();
-            dex.currentTime = 0;
         });
 
         // Hide if user clicks the dark space
