@@ -11,10 +11,11 @@
                 <div class="slider round"></div>
         </label>
         <strong>Dark Mode</strong>
-        </div>
-    </nav>
-    <a href="../"><svg style="position: fixed; top: 20px; left: 20px;" id="backBtn" viewBox="0 0 24 24" width="24" height="24" stroke="black" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a>
-    <main>
+    </div>
+</nav>
+<a href="../"><svg style="position: fixed; top: 20px; left: 20px;" id="backBtn" viewBox="0 0 24 24" width="24" height="24" stroke="black" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a>
+
+<main>
     
     
         
@@ -38,7 +39,7 @@
             3000 years ago a great war broke out. The king of Kalos, AZ, was forced to send the Floette he inherited from his mother into battle, where it died. AZ couldn't stand losing Floette so he built a machine to resurrect it. He then turned the machine into the ultimate weapon, creating a devastating blast that ended the war, while sacrificing the lives of many pokémon. The explosion also gave both Floette and AZ eternal life. When Floette found out about this, it left AZ for a very long time.
         </p>
         
-    
+    <img src="/images/HOME0479F_s.png" alt="fan-rotom" style="max-width: 5%;" class="hidden" id="fanrotom">
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.10/js/imageMapResizer.min.js">imageMapResize();</script>
     <script>imageMapResize();</script>
@@ -47,6 +48,7 @@
         const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
         const currentTheme = localStorage.getItem('theme');
         const backBtn = document.getElementById('backBtn');
+        const fanrotom = document.getElementById('fanrotom');
 
         if (currentTheme) {
             document.documentElement.setAttribute('data-theme', currentTheme);
@@ -62,6 +64,7 @@
                 document.documentElement.setAttribute('data-theme', 'dark');
                 localStorage.setItem('theme', 'dark');
                 backBtn.setAttribute("stroke","white");
+                fanrotom.classList.remove("hidden");
             } else {
                 document.documentElement.setAttribute('data-theme', 'light');
                 localStorage.setItem('theme', 'light');

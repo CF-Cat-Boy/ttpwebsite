@@ -23,35 +23,37 @@
                 <audio src="/audio/rotom-alert.mp3" id="rotsound"></audio>
                 <audio src="/audio/rotom-arceus.wav" id="floette-dex"></audio>
                 <img src="/images/arceus-dex-rotom.png" class="dex" />
-
+                
             </div>
         </div>
         <button id="openBtn" class="corner ms-small"><img src="/images/HOME0479.png" alt="Rotom" id="rotom" class="corner outline"></button>
-
+        <button id="openBtn2" class="othercorner ms-small"><img src="/images/HOME0479_s.png" alt="Rotom" id="rotom2" class="othercorner yelloutline"></button>
+        
         <h3>Sinnoh</h3>
         
         <img src="/images/Sinnoh_BDSP_artwork.png" class="mainimg"/>
         <br/>
         <p>
-
-        The Sinnoh region is located north of Kanto, Johto and Hoenn. The region has a large main landmass surrounded by the Battle Zone on an island to the northeast and several other smaller islands. Sinnoh’s geography and cities are based on the Japanese island of Hokkaido.
-
-A mountain range divides the region in half from north to south, with Mount Coronet in the centre. At its highest peak are the ruins of an ancient shrine called the Spear Pillar, which is connected to the creation myth.
-
-In ancient times, Sinnoh was known as Hisui and the people worshipped Arceus as their god. The ancient Hisuian people vanished, leaving behind only archaeological relics, and  after the events of Pokemon Legends: Arceus the region became known as Sinnoh.        </p>
+            
+            The Sinnoh region is located north of Kanto, Johto and Hoenn. The region has a large main landmass surrounded by the Battle Zone on an island to the northeast and several other smaller islands. Sinnoh’s geography and cities are based on the Japanese island of Hokkaido.
+            
+            A mountain range divides the region in half from north to south, with Mount Coronet in the centre. At its highest peak are the ruins of an ancient shrine called the Spear Pillar, which is connected to the creation myth.
+            
+            In ancient times, Sinnoh was known as Hisui and the people worshipped Arceus as their god. The ancient Hisuian people vanished, leaving behind only archaeological relics, and  after the events of Pokemon Legends: Arceus the region became known as Sinnoh.        </p>
+            
         
-    
-    </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.10/js/imageMapResizer.min.js">imageMapResize();</script>
-    <script>imageMapResize();</script>
-    <script id="rendered-js" wfd-invisible="true">
-
-        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-        const currentTheme = localStorage.getItem('theme');
-        const backBtn = document.getElementById('backBtn');
-
-        if (currentTheme) {
-            document.documentElement.setAttribute('data-theme', currentTheme);
+        <video src="/videoes/pcm.mp4" id="videoe" class="hidden"></video>
+        </main>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.10/js/imageMapResizer.min.js">imageMapResize();</script>
+        <script>imageMapResize();</script>
+        <script id="rendered-js" wfd-invisible="true">
+            
+            const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+            const currentTheme = localStorage.getItem('theme');
+            const backBtn = document.getElementById('backBtn');
+            
+            if (currentTheme) {
+                document.documentElement.setAttribute('data-theme', currentTheme);
 
             if (currentTheme === 'dark') {
                 toggleSwitch.checked = true;
@@ -100,6 +102,31 @@ In ancient times, Sinnoh was known as Hisui and the people worshipped Arceus as 
             rotom.classList.remove('hidden');
             dex.pause();
             dex.currentTime = 0;
+        }
+        });
+        const openBtn2 = document.getElementById('openBtn2');
+        const rotom2 = document.getElementById('rotom2');
+        const dex2 = document.getElementById('videoe');
+        
+
+        //dex2.volume = 0.25
+
+        // Show the overlay
+        openBtn2.addEventListener('click', () => {
+            rotom2.classList.add('hidden');
+            rotsound.play();
+            dex2.classList.remove('hidden');
+            dex2.play();
+            window.location.hash = "videoe"
+        });
+        
+        // Hide if user clicks the dark space
+        dex2.addEventListener('ended', (e) => {
+        if (e.target === overlay2) {
+            rotom2.classList.remove('hidden');
+            dex2.classList.add('hidden');
+            dex2.pause();
+            dex2.currentTime = 0;
         }
         });
 
